@@ -53,6 +53,17 @@ resource "aws_apigatewayv2_route" "lambda_route_caiogustavojoaopost" {
   route_key = "POST /caiogustavojoaopost"
   target    = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
 }
+resource "aws_apigatewayv2_route" "lambda_route_caiogustavojoaoget_users" {
+  api_id    = aws_apigatewayv2_api.main_api.id
+  route_key = "GET /caiogustavojoaoget/users"
+  target    = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
+}
+
+resource "aws_apigatewayv2_route" "lambda_route_caiogustavojoaopost_users" {
+  api_id    = aws_apigatewayv2_api.main_api.id
+  route_key = "POST /caiogustavojoaopost/users"
+  target    = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
+}
 resource "aws_lambda_permission" "api_gateway" {
   statement_id  = "AllowExecutionFromAPIGateway"
   action        = "lambda:InvokeFunction"
