@@ -50,7 +50,7 @@ resource "aws_apigatewayv2_route" "lambda_route_caiogustavojoaoget" {
 
 resource "aws_apigatewayv2_route" "lambda_route_caiogustavojoaopost" {
   api_id    = aws_apigatewayv2_api.main_api.id
-  route_key = "POST /caiogustavojoaopost/"
+  route_key = "POST /caiogustavojoaopost"
   target    = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
 }
 resource "aws_lambda_permission" "api_gateway" {
