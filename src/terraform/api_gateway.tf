@@ -42,7 +42,17 @@ resource "aws_apigatewayv2_route" "lambda_route_demo_aula" {
   route_key = "POST /demo/aula"
   target    = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
 }
+resource "aws_apigatewayv2_route" "lambda_route_caiogustavojoaoget" {
+  api_id    = aws_apigatewayv2_api.main_api.id
+  route_key = "GET /caiogustavojoaoget"
+  target    = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
+}
 
+resource "aws_apigatewayv2_route" "lambda_route_caiogustavojoaopost" {
+  api_id    = aws_apigatewayv2_api.main_api.id
+  route_key = "POST /caiogustavojoaopost/"
+  target    = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
+}
 resource "aws_lambda_permission" "api_gateway" {
   statement_id  = "AllowExecutionFromAPIGateway"
   action        = "lambda:InvokeFunction"
