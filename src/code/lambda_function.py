@@ -18,7 +18,7 @@ def lambda_handler(event, context):
     """Função principal - roteia requisições HTTP"""
 
     method = event.get("httpMethod", "")
-    path = event.get("rawPath", "")
+    path = event.get("path", "")
 
     try:
         if method == "POST" and "/users" in path:
